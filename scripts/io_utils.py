@@ -33,3 +33,4 @@ def mkdir_from_infile(file: str) -> None:
     except OSError as err:
         print(f"{err}\nOSError: A more generic error at the OS level occurred {directory}", file=sys.stderr)
         raise
+
