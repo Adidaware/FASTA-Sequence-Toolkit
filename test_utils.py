@@ -1,4 +1,4 @@
-""" This program is designed to test the functions of assignment4_utils.py """
+""" This program is designed to test the functions of utils.py """
 
 from assignment4.assignment4_utils import read_gene_data, count_categories, find_intersection
 
@@ -27,3 +27,4 @@ def test_find_intersection():
     """
     intersection = find_intersection('chr21_genes.txt', 'HUGO_genes.txt')
     assert isinstance(intersection, set)
+
