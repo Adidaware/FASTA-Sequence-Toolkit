@@ -1,4 +1,4 @@
-""" This functions defined in this module are later imported in the assignment 4 """
+""" This functions defined in this module are later imported in the next scripts """
 
 
 def read_gene_data(infile):
@@ -37,3 +37,4 @@ def find_intersection(infile1, infile2):
     gene_data1 = set(read_gene_data(infile1).keys())
     gene_data2 = set(read_gene_data(infile2).keys())
     return gene_data1.intersection(gene_data2)
+
