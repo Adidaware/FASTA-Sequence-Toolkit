@@ -1,6 +1,6 @@
 """ This program is designed to test the functions of utils.py """
 
-from assignment4.assignment4_utils import read_gene_data, count_categories, find_intersection
+from scripts.utils import read_gene_data, count_categories, find_intersection
 
 
 def test_read_gene_data():

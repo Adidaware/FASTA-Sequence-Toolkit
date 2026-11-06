@@ -1,65 +1,79 @@
-# FASTA-Sequence-Toolkit
+# FASTA Sequence Toolkit
 
-### **Author's Name: Aditya Daware**
+Python command-line tools for exploring human gene annotation files: looking up genes on chromosome 21, counting chr21 genes by functional category, and finding the genes shared between the chr21 list and the full HUGO gene list.
 
-File description:
+![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white) ![pytest](https://img.shields.io/badge/tested%20with-pytest-0A9EDC?logo=pytest&logoColor=white)
 
-#### **Code function: This code is designed to include all the functions required by the three main programs - gene_names_from_chr21.py, find_common_cats.py, intersection_of_gene_names.py**
+## 🧰 Tools
 
-### File name: *io_utils.py*
+### `gene_names_from_chr21.py`: interactive gene lookup
+Loads `chr21_genes.txt` and asks for gene symbols one at a time (case-insensitive), printing each gene's description. Type `quit` or `exit` to stop.
 
-File description: This code is provided in the assignment.
+```bash
+python gene_names_from_chr21.py -i chr21_genes.txt
+```
 
-#### **Code function: This code is designed to create a directory. This module is imported whenever it is needed to creat an output file.**
+### `find_common_cats.py`: genes per category
+Counts how many chr21 genes fall into each functional category and adds the category's definition. Writes the result to **`OUTPUT/categories.txt`** (`Category`, `Count`, `Description`).
 
-### File name: *gene_names_from_chr21.py*
+```bash
+python find_common_cats.py -i1 chr21_genes.txt -i2 chr21_genes_categories.txt
+```
 
-### **Author's Name: Aditya Daware**
+### `intersection_of_gene_names.py`: shared gene symbols
+Finds the gene symbols present in both `chr21_genes.txt` and `HUGO_genes.txt`, writes them in sorted order to **`OUTPUT/intersection_output.txt`**, and prints summary counts.
 
-File description: 
+```bash
+python intersection_of_gene_names.py -i1 chr21_genes.txt -i2 HUGO_genes.txt
+# Number of unique gene names in chr21_genes.txt: 285
+# Number of unique gene names in HUGO_genes.txt: 11815
+# Number of common gene symbols found: 204
+```
 
-Modules imported: argparse
+Every argument has a default, so each script also runs without any flags from the repository root.
 
-#### **Code function: This code is designed to find and print the name of the gene based on the user input**
+## 📊 Data
 
-### File name: *find_common_cats.py*
+| File | Contents |
+| :--- | :--- |
+| `chr21_genes.txt` | Chromosome 21 genes: symbol, description, category |
+| `chr21_genes_categories.txt` | Definitions of the chr21 gene categories (1.1–5) |
+| `HUGO_genes.txt` | HUGO gene symbols with descriptions |
+| `hgnc_complete_set_reduced.txt`, `gene_age.txt` | Extra reference tables (HGNC set, gene age) |
 
-### **Author's Name: Aditya Daware**
+## 🚀 Getting Started
 
-File description: 
+```bash
+git clone https://github.com/Adidaware/FASTA-Sequence-Toolkit.git
+cd FASTA-Sequence-Toolkit
+pip install -r requirements.txt   # only needed to run the tests
+```
 
-Modules imported: argparse, utils, io_utils
+Run the scripts from the repository root so that the `scripts` package can be imported.
 
+## ✅ Tests
 
-#### **Code function: This code is designed to find the common gene categories output a txt file**
+```bash
+python -m pytest
+```
 
-### File name: *intersection_of_gene_names.py*
+## 📁 Repository Layout
 
-### **Author's Name: Aditya Daware**
+```
+├── gene_names_from_chr21.py
+├── find_common_cats.py
+├── intersection_of_gene_names.py
+├── scripts/
+│   ├── utils.py        # gene-file readers, category counts, intersections
+│   └── io_utils.py     # creates output directories
+├── tests/unit/         # pytest suites for utils and io_utils
+└── OUTPUT/             # example output
+```
 
-File description: 
+## 🙏 Credits
 
-Modules imported: argparse, utils
+`scripts/io_utils.py` is based on provided starter code.
 
-#### **Code function: This python program is designed to find common gene symbols between the two txt files - chr21_genes.txt and HUGO_genes.txt**
+## 👤 Author
 
-
-### File name: *utils.py*
-
-### **Author's Name: Aditya Daware**
-
-File description: 
-
-Modules imported: assignment4_utils
-
-#### **Code function: This python program is designed to test the functions in utils.py**
-
-### File name: *io_utils.py*
-
-### **Author's Name: Aditya Daware**
-
-File description: 
-
-Modules imported: pytest, io_utils
-
-#### **Code function: This python program is designed to test the functions in io_utils.py**
+**Aditya Daware** · [LinkedIn](https://www.linkedin.com/in/aditya-daware) · [GitHub](https://github.com/Adidaware)

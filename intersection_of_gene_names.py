@@ -1,6 +1,6 @@
 """ This program is designed to find common gene symbols between two files. """
 import argparse
-from assignment4.io_utils import mkdir_from_infile
+from scripts.io_utils import mkdir_from_infile
 
 
 def get_cli_args():

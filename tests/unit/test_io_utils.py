@@ -1,6 +1,6 @@
 """ This program is designed to test the functions of io_utils.py """
 import pytest
-from assignment4.io_utils import mkdir_from_infile
+from scripts.io_utils import mkdir_from_infile
 
 
 def test_mkdir_from_infile_existing_directory(tmp_path):
